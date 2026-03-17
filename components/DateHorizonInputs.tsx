@@ -59,8 +59,7 @@ function DateHorizonInputs() {
               className="w-40 border rounded p-2 mt-1"
               value={startDate}
               onChange={(e) => setStartDate(e.target.value)}
-              min="2024-01-01"
-              max="2024-01-31"
+              min="2025-01-01"
             />
           </div>
           <div className="flex flex-col gap-2">
@@ -70,8 +69,7 @@ function DateHorizonInputs() {
               className="w-40 border rounded p-2 mt-1"
               value={endDate}
               onChange={(e) => setEndDate(e.target.value)}
-              min="2024-01-01"
-              max="2024-01-31"
+              min="2025-01-01"
             />
           </div>
           <div className="flex flex-col gap-2">
@@ -81,7 +79,7 @@ function DateHorizonInputs() {
 
             <input
               type="range"
-              min={4}
+              min={0}
               max={48}
               value={horizon}
               onChange={(e) => setHorizon(Number(e.target.value))}
