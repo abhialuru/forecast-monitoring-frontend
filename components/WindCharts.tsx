@@ -20,15 +20,19 @@ interface DataPoint {
 export default function WindCharts({ data }: { data: DataPoint[] }) {
   console.log("result", data);
 
+  const isMobile = window.innerWidth < 768;
+
   return (
     <div className="w-full flex justify-center items-center">
-      <div className="w-[80%] max-w-8xl ">
+      <div className="w-full md:w-[80%] max-w-8xl ">
         <ResponsiveContainer width="100%" height={400}>
           <LineChart data={data}>
             <CartesianGrid strokeDasharray="3 3" />
 
             <XAxis
               dataKey="time"
+              angle={isMobile ? -45 : 0}
+              tick={{ fontSize: isMobile ? 10 : 12 }}
               tickFormatter={(time) =>
                 new Date(time).toLocaleString("en-GB", {
                   timeZone: "UTC",
@@ -41,6 +45,7 @@ export default function WindCharts({ data }: { data: DataPoint[] }) {
             />
 
             <YAxis
+              tick={{ fontSize: isMobile ? 10 : 12 }}
               label={{
                 value: "Power (MW)",
                 angle: -90,
